@@ -1,18 +1,27 @@
 class Solution:
     def createBinaryTree(self, descriptions):
+
         nodes = {}
-        children = set()
-        for p, c, left in descriptions:
+        parent = {}
+
+        for p, c, isLeft in descriptions:
+
             if p not in nodes:
                 nodes[p] = TreeNode(p)
+
             if c not in nodes:
                 nodes[c] = TreeNode(c)
-            if left:
+
+            if isLeft:
                 nodes[p].left = nodes[c]
             else:
                 nodes[p].right = nodes[c]
-            children.add(c)
-            
-        for val in nodes:
-            if val not in children:
-                return nodes[val]
+
+            parent[c] = p
+
+        root_val = descriptions[0][0]
+
+        while root_val in parent:
+            root_val = parent[root_val]
+
+        return nodes[root_val]
