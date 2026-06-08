@@ -2,7 +2,7 @@ class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         def fun(i):
             if i==len(nums):
-                res.append(l[:])
+                res.append(l.copy())
                 return
             l.append(nums[i])
             fun(i+1) 
