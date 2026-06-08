@@ -3,12 +3,9 @@ class Solution:
         def fun(i):
             if i==len(nums):
                 res.append(l[:])
-                print(res)
                 return
-            #with
             l.append(nums[i])
-            fun(i+1)
-            #without 
+            fun(i+1) 
             l.pop()
             fun(i+1)     
         res=[]
