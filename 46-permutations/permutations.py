@@ -2,7 +2,7 @@ class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         res = []
         path = []
-        used = [False] * len(nums)
+        used =[]
 
         def backtrack():
             if len(path) == len(nums):
@@ -10,16 +10,16 @@ class Solution:
                 return
 
             for i in range(len(nums)):
-                if used[i]:
+                if nums[i] in used:
                     continue
 
-                used[i] = True
+                used.append(nums[i])
                 path.append(nums[i])
 
                 backtrack()
 
                 path.pop()
-                used[i] = False
+                used.pop()
 
         backtrack()
         return res
