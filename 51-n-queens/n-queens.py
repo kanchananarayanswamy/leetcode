@@ -4,9 +4,9 @@ class Solution:
         board = [["."] * n for _ in range(n)]
         def issafe(row,col):
             #check column
-            for j in range(n):
-                if board[row][j]=="Q":
-                    return False
+            # for j in range(n):
+            #     if board[row][j]=="Q":
+            #         return False
             for i in range(n):
                 if board[i][col]=="Q":
                     return False
