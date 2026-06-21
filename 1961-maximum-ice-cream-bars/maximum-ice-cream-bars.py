@@ -5,7 +5,6 @@ class Solution:
         print(costs)
         for i in costs:
             coins-=i
-            print(i,coins)
             if coins>=0:
                 c+=1
         return c
