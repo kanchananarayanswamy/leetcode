@@ -1,13 +1,14 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        def fun(i):
-            res.append(l.copy())
-            for j in range(i,len(nums)):
-                l.append(nums[j])
-                fun(j+1)
-                l.pop()
         res=[]
-        l=[]
-        fun(0)
+        def gen_sub(i,sub_set,res):
+            if i==len(nums):
+                res.append(sub_set.copy())
+                return
+            sub_set.append(nums[i])
+            gen_sub(i+1,sub_set,res)
+            sub_set.pop()
+            gen_sub(i+1,sub_set,res)
+        gen_sub(0,[],res)
         return res
-        
+
