@@ -1,4 +1,4 @@
 class Solution:
     def maxDistinct(self, s: str) -> int:
-        a=Counter(s)
+        a=set(s)
         return len(a)
