@@ -5,14 +5,14 @@ class Solution:
         
         if len(s)<=3:
             return s
-        cnt = Counter(s)
-
+        d = Counter(s)
+        a=sorted(d)
         ans = [""] * len(s)
         i, j = 0, len(s) - 1
         mid = ""
 
-        for ch in sorted(cnt):
-            half = cnt[ch] // 2
+        for ch in a:
+            half = d[ch] // 2
 
             while half:
                 ans[i] = ch
@@ -21,7 +21,7 @@ class Solution:
                 j -= 1
                 half -= 1
 
-            if cnt[ch] % 2 == 1:
+            if d[ch] % 2 == 1:
                 mid = ch
 
         if mid:
